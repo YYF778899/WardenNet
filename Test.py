@@ -89,6 +89,7 @@ def Test(testData,weight_path):
             test_output = model(test_img_array)
 
             ###--------------Save---------------------
+            test_output = test_output.detach().numpy()
             for test_i in range(len(test_output)):
                 final_test_img = test_output[test_i,0].astype(np.float32)
                 final_test_img = min_max_normalize(final_test_img)
